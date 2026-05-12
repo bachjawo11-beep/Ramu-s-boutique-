@@ -102,6 +102,11 @@ nav a{
   margin:10px 0;
 }
 
+.card .btn {
+  margin-top: 10px;
+  display: inline-block;
+}
+
 button{
   padding:10px 20px;
   background:gold;
