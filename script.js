@@ -81,4 +81,3 @@ function updateCart(){
   "https://wa.me/2207597080?text=" + message;
 }
 </script>
-  
