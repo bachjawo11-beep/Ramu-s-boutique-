@@ -1,166 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ramu Boutique</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramu Boutique</title>
 
-  <link rel="stylesheet" href="style.css">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#0a0a0a;
+  color:white;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  background:black;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  color:gold;
+  font-weight:bold;
+  font-size:22px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:15px;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:100px 20px;
+  background:linear-gradient(to right,#000,#222);
+}
+
+.hero h1{
+  font-size:40px;
+  color:gold;
+  margin-bottom:10px;
+}
+
+.btn{
+  display:inline-block;
+  padding:12px 20px;
+  background:gold;
+  color:black;
+  text-decoration:none;
+  border-radius:8px;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+/* PRODUCTS */
+.products{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.card{
+  background:#151515;
+  padding:15px;
+  border-radius:15px;
+  border:1px solid gold;
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+button{
+  margin-top:10px;
+  padding:10px;
+  background:gold;
+  border:none;
+  cursor:pointer;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+/* CART */
+.cart{
+  padding:40px;
+  background:#111;
+  margin:20px;
+  border-radius:10px;
+}
+
+.cart ul{
+  list-style:none;
+  margin:10px 0;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:black;
+  color:gold;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="logo">RAMU'S BOUTIQUE</div>
-
+  <div class="logo">RAMU BOUTIQUE</div>
   <nav>
     <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="#products">Shop</a>
+    <a href="#cart">Cart</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-
   <h1>Luxury Fashion Store</h1>
-
   <p>Clothes • Shoes • Perfumes</p>
 
-  <a href="#" class="btn">Shop Now</a>
+  <a href="#products" class="btn">Shop Now</a>
 
+  <a href="https://wa.me/2207597080?text=Hello%20I%20want%20to%20order%20from%20Ramu%20Boutique"
+     target="_blank" class="btn">
+    Chat on WhatsApp
+  </a>
 </section>
 
 <!-- PRODUCTS -->
 <section class="products" id="products">
-  
-  <h2>Our Collection</h2>
+  <h2 style="color:gold;">Our Collection</h2>
 
   <div class="product-grid">
 
-    <!-- PRODUCT 1 -->
     <div class="card">
-
-      <img src="dress.jpg" alt="Dress">
-
+      <img src="dress.jpg">
       <h3>Elegant Dress</h3>
-
       <p>$50</p>
-
-      <button onclick="addToCart('Elegant Dress', 50)">
-  Add Elegant Dress to Cart
-      </button>
-
+      <button onclick="addToCart('Elegant Dress', 50)">Add to Cart</button>
     </div>
 
-    <!-- PRODUCT 2 -->
     <div class="card">
-
-      <img src="shoes.jpg" alt="Shoes">
-
+      <img src="shoes.jpg">
       <h3>Luxury Shoes</h3>
-
       <p>$65</p>
-
-      <button onclick="addToCart('Luxury Shoes', 65)">
-  Add Luxury Shoes to Cart
-      </button>
-
+      <button onclick="addToCart('Luxury Shoes', 65)">Add to Cart</button>
     </div>
 
-    <!-- PRODUCT 3 -->
     <div class="card">
-
-      <img src="perfume.jpg" alt="Perfume">
-
+      <img src="perfume.jpg">
       <h3>Signature Perfume</h3>
-
       <p>$40</p>
-
-      <button onclick="addToCart('Signature Perfume', 40)">
-  Add Signature Perfume to Cart
-      </button>
-
-      <div class="cart">
-  <h2>Cart</h2>
-  <ul id="cart-list"></ul>
-  <h3 id="total">Total: $0</h3>
-
-  <a id="checkout" class="btn" target="_blank">Checkout on WhatsApp</a>
-      </div>
-      
-    </a>
-      
+      <button onclick="addToCart('Signature Perfume', 40)">Add to Cart</button>
     </div>
 
   </div>
-
 </section>
 
-<!-- ABOUT -->
-<section class="about">
+<!-- CART -->
+<section class="cart" id="cart">
+  <h2>Your Cart</h2>
+  <ul id="cart-items"></ul>
+  <h3 id="total">Total: $0</h3>
 
-  <h2>About Ramu Boutique</h2>
-
-  <p>
-    We provide premium fashion products including clothes,
-    shoes, perfumes, and accessories with luxury style.
-  </p>
-
-</section>
-
-<!-- CONTACT -->
-<section class="contact">
-
-  <h2>Contact Us</h2>
-
-  <p>Order directly through WhatsApp</p>
-
-  <a href="https://wa.me/2207597080?text=Hello%20I%20want%20to%20order%20from%20Ramu%20Boutique" 
-   target="_blank" class="btn">
-  Chat on WhatsApp
-        </a>
-
-  <!-- CONTACT BUTTONS -->
-<div class="contact-buttons">
-
-  <!-- WhatsApp / Phone Button -->
-  <a href="tel:+2207597080" class="btn contact-btn">
-    📞 Call / WhatsApp: +220 759 7080
-  </a>
-
-  <!-- Email Button -->
-  <a href="mailto: bachjawo11@gmail.com" class="btn contact-btn">
-    ✉️ Send Email
-  </a>
-
-  <script>
-let cart = [];
-
-function addToCart(name, price) {
-  cart.push({ name, price });
-  alert(name + " added to cart!");
-  console.log(cart);
-}  
-
-<script>
-function addToCart(name, price) {
-  alert(name + " added to cart. Price: $" + price);
-}
-</script>
-    
-</script>
-  
-</div>
-  
+  <a id="checkout" class="btn" target="_blank">Checkout on WhatsApp</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Ramu Boutique • All Rights Reserved</p>
+  © 2026 Ramu Boutique
 </footer>
 
+<!-- JAVASCRIPT -->
+<script>
+let cart = [];
+
+function addToCart(name, price){
+  cart.push({name, price});
+  updateCart();
+}
+
+function updateCart(){
+  let list = document.getElementById("cart-items");
+  let totalText = document.getElementById("total");
+  let checkout = document.getElementById("checkout");
+
+  list.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach(item=>{
+    let li = document.createElement("li");
+    li.textContent = item.name + " - $" + item.price;
+    list.appendChild(li);
+    total += item.price;
+  });
+
+  totalText.innerText = "Total: $" + total;
+
+  let message = "Hello, I want to order:%0A";
+
+  cart.forEach(item=>{
+    message += "- " + item.name + " ($" + item.price + ")%0A";
+  });
+
+  message += "%0ATotal: $" + total;
+
+  checkout.href = "https://wa.me/2207597080?text=" + message;
+}
+</script>
+
 </body>
-      </html>
+  </html>
