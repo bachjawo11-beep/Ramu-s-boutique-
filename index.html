@@ -49,7 +49,9 @@
 
       <p>$50</p>
 
-      <a href="https://wa.me/2207597080?text=Hello%20I%20want%20to%20buy%20the%20Elegant%20Dress" class="btn">Buy Now</a>
+      <button onclick="addToCart('Elegant Dress', 50)">
+  Add Elegant Dress to Cart
+      </button>
 
     </div>
 
@@ -62,7 +64,9 @@
 
       <p>$65</p>
 
-      <a href="https://wa.me/2207597080?text=Hello%20I%20want%20to%20buy%20the%20Luxury%20Shoes" class="btn">Buy Now</a>
+      <button onclick="addToCart('Luxury Shoes', 65)">
+  Add Luxury Shoes to Cart
+      </button>
 
     </div>
 
@@ -75,7 +79,9 @@
 
       <p>$40</p>
 
-      <a href="https://wa.me/2207597080?text=Hello%20I%20want%20to%20buy%20the%20Signature%20Perfume" class="btn">Buy Now</a>
+      <button onclick="addToCart('Signature Perfume', 40)">
+  Add Signature Perfume to Cart
+      </button>
 
       <div class="cart">
   <h2>Cart</h2>
@@ -130,6 +136,16 @@
     ✉️ Send Email
   </a>
 
+  <script>
+let cart = [];
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  alert(name + " added to cart!");
+  console.log(cart);
+}
+    </script>
+  
 </div>
   
 </section>
